@@ -1,27 +1,42 @@
 /* Importar fuentes de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+:root {
+    --primary-beza: #E03B8B;
+    --secondary-beza: #00F5D4;
+    --dark-bg: #121212;
+    --dark-card-bg: #1e1e1e;
+}
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #121212;
-    /* Fondo oscuro */
+    /* CAMBIO: El fondo ahora es negro puro */
+    background-color: #000;
+    color: #e0e0e0;
+}
+
+.main-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--primary-beza);
 }
 
 /* --- Sidebar --- */
 .sidebar {
-    width: 250px;
-    background-color: #181818;
+    width: 260px;
+    background-color: #000;
     min-height: 100vh;
-    transition: width 0.3s;
 }
 
 .sidebar .nav-link {
     color: #b3b3b3;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 500;
     border-radius: 8px;
     display: flex;
     align-items: center;
+    margin-bottom: 5px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .sidebar .nav-link i {
@@ -33,26 +48,75 @@ body {
     background-color: #282828;
 }
 
-/* Estilo para la pestaña activa */
 .sidebar .nav-link.active {
     color: #FFFFFF;
-    background-color: #E03B8B;
-    /* Color Primario */
-}
-
-/* Ocultar texto en sidebar colapsado (para futuro) */
-.sidebar span {
-    display: inline;
+    background: linear-gradient(90deg, var(--primary-beza), #8A2BE2);
 }
 
 /* --- Contenido Principal --- */
 .main-content {
     flex-grow: 1;
-    /* Ocupa el resto del espacio */
 }
 
-h2 {
-    font-family: 'Poppins', sans-serif;
-    color: #E03B8B;
-    /* Color Primario para títulos */
+/* --- Tarjetas (Cards) --- */
+.bg-dark-card {
+    background-color: var(--dark-card-bg);
+    border: 1px solid #333;
+    border-radius: 12px;
+}
+
+.icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.bg-primary-beza {
+    background-color: var(--primary-beza);
+}
+
+.bg-secondary-beza {
+    background-color: var(--secondary-beza);
+}
+
+/* --- Tablas --- */
+.table {
+    --bs-table-bg: var(--dark-card-bg);
+    --bs-table-border-color: #333;
+    --bs-table-hover-bg: #2a2a2a;
+}
+
+/* --- Formularios --- */
+.form-control {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+.form-control:focus {
+    background-color: #333;
+    border-color: var(--primary-beza);
+    box-shadow: 0 0 0 0.25rem rgba(224, 59, 139, 0.25);
+    color: #fff;
+}
+
+.form-label {
+    color: #b3b3b3;
+}
+
+/* --- Botón Personalizado --- */
+.btn-primary-beza {
+    background-color: var(--primary-beza);
+    border-color: var(--primary-beza);
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-primary-beza:hover {
+    background-color: #c7347a;
+    border-color: #c7347a;
 }
