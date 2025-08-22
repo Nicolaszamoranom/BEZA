@@ -35,9 +35,9 @@
             color: #6c757d;
         }
 
-        /* ---- Estilos para Tarjetas ---- */
         .stat-card,
-        .table-container {
+        .table-container,
+        .chart-card {
             background-color: white;
             border: none;
             border-radius: 12px;
@@ -46,7 +46,8 @@
         }
 
         .stat-card:hover,
-        .table-container:hover {
+        .table-container:hover,
+        .chart-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
@@ -80,7 +81,6 @@
             font-size: 0.9rem;
         }
 
-        /* ---- Estilos para Tablas ---- */
         .table-container {
             padding: 1rem;
         }
@@ -99,7 +99,7 @@
             white-space: nowrap;
         }
 
-        /* ---- Estilos para Tabla de Catálogo ---- */
+        /* ---- Estilos para la Tabla de Catálogo ---- */
         .catalog-table .album-art-thumb {
             width: 40px;
             height: 40px;
@@ -132,8 +132,89 @@
             color: var(--primary-beza, #E03B8B);
         }
 
-        .catalog-table .monetizing-emoji {
+        .catalog-table .monetizing-emoji,
+        .catalog-table .type-emoji {
             font-size: 1.25rem;
+        }
+
+        /* ---- Nuevos Estilos para la Página de Analytics ---- */
+        .analytics-header {
+            margin-bottom: 2rem;
+        }
+
+        .analytics-header .date-range-picker {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .kpi-main {
+            margin-bottom: 1.5rem;
+        }
+
+        .kpi-main .kpi-title {
+            font-size: 0.8rem;
+            color: #6c757d;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-main .kpi-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .kpi-main .kpi-change {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .platform-icons img {
+            height: 20px;
+            filter: grayscale(1);
+            opacity: 0.6;
+            margin-right: 0.75rem;
+        }
+
+        .kpi-breakdown .kpi-breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .kpi-breakdown .kpi-breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .kpi-breakdown .metric-info .metric-name {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .kpi-breakdown .metric-info .metric-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .kpi-breakdown .metric-viz {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .kpi-breakdown .sparkline-placeholder {
+            width: 80px;
+            height: 30px;
+            background: linear-gradient(to top, rgba(54, 162, 235, 0.05), rgba(54, 162, 235, 0.4));
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -141,22 +222,22 @@
 <body>
     <div class="d-flex">
         <nav class="sidebar d-flex flex-column p-3">
-            <a href="#" class="mb-4 text-center">
+            <a href="index.html" class="mb-4 text-center">
                 <h2 class="text-white fw-bold">BEZA</h2>
             </a>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item"><a class="nav-link" href="#dashboard" data-bs-toggle="tab"><i
-                            data-feather="home"></i> <span>Dashboard</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="#ingresos" data-bs-toggle="tab"><i
-                            data-feather="dollar-sign"></i> <span>Ingresos</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="#analytics" data-bs-toggle="tab"><i
-                            data-feather="bar-chart-2"></i> <span>Analytics</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="#historial" data-bs-toggle="tab"><i
-                            data-feather="clock"></i> <span>Historial de retiro</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="#contratos" data-bs-toggle="tab"><i
-                            data-feather="file-text"></i> <span>Contratos</span></a></li>
-                <li class="nav-item"><a class="nav-link active" href="#catalogos" data-bs-toggle="tab"><i
-                            data-feather="music"></i> <span>Catálogos</span></a></li>
+                <li class="nav-item"><a class="nav-link active" href="#dashboard"
+                        data-bs-toggle="tab"><span>Dashboard</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#ingresos" data-bs-toggle="tab"><span>Ingresos</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#analytics"
+                        data-bs-toggle="tab"><span>Analytics</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#historial" data-bs-toggle="tab"><span>Historial de
+                            retiro</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#contratos"
+                        data-bs-toggle="tab"><span>Contratos</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#catalogos"
+                        data-bs-toggle="tab"><span>Catálogos</span></a></li>
             </ul>
             <hr>
             <div class="dropdown">
@@ -261,23 +342,74 @@
                 </div>
 
                 <div class="tab-pane fade" id="analytics">
-                    <div class="section-header">
-                        <h2 class="main-title">Analytics</h2>
-                        <p>Visualiza el rendimiento de tu música.</p>
+                    <div class="analytics-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                        <h2 class="main-title mb-0">Rendimiento de mi catálogo</h2>
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="date-range-picker"><i data-feather="calendar" class="me-2"></i> Julio 24, 2025
+                                - Agosto 20, 2025</span>
+                            <i data-feather="bar-chart-2"></i>
+                            <i data-feather="info"></i>
+                        </div>
                     </div>
-                    <div class="row g-4">
-                        <div class="col-lg-12">
-                            <div class="stat-card p-3">
-                                <h5 class="card-title text-center">Ingresos Mensuales</h5>
-                                <div class="chart-container" style="height: 350px;"><canvas
-                                        id="ingresosMensualesChart"></canvas></div>
+
+                    <div class="chart-card p-4">
+                        <div class="kpi-main">
+                            <h5 class="kpi-title">Streams de Audio</h5>
+                            <div class="d-flex align-items-center">
+                                <h2 class="kpi-value me-3 mb-0">47,565</h2>
+                                <span class="kpi-change text-success d-flex align-items-center">
+                                    <i data-feather="trending-up" class="me-1"></i> 11.95%
+                                </span>
+                            </div>
+                            <div class="platform-icons mt-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Apple_Music_logo.svg/100px-Apple_Music_logo.svg.png"
+                                    alt="Apple Music">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/VK.com-logo.svg/100px-VK.com-logo.svg.png"
+                                    alt="VK">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tencent_QQ_logo.svg"
+                                    alt="QQ">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Spotify_logo_with_text.svg/150px-Spotify_logo_with_text.svg.png"
+                                    alt="Spotify">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Deezer_logo.svg/150px-Deezer_logo.svg.png"
+                                    alt="Deezer">
                             </div>
                         </div>
-                        <div class="col-lg-12 mt-4">
-                            <div class="stat-card p-3">
-                                <h5 class="card-title text-center">Streams por Plataforma</h5>
-                                <div class="chart-container" style="height: 350px;"><canvas
-                                        id="plataformasChart"></canvas></div>
+
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <div class="chart-container" style="height: 300px;">
+                                    <canvas id="streamsAreaChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 kpi-breakdown">
+                                <div class="kpi-breakdown-item">
+                                    <div class="metric-info">
+                                        <div class="metric-value">47.6K</div>
+                                        <div class="kpi-title">Streams de Audio</div>
+                                    </div>
+                                    <div class="metric-viz">
+                                        <div class="sparkline-placeholder"></div>
+                                        <span class="kpi-change text-success">11.95%</span>
+                                    </div>
+                                </div>
+                                <div class="kpi-breakdown-item">
+                                    <div class="metric-info">
+                                        <div class="metric-value">0</div>
+                                        <div class="kpi-title">Descargas de Canciones</div>
+                                    </div>
+                                </div>
+                                <div class="kpi-breakdown-item">
+                                    <div class="metric-info">
+                                        <div class="metric-value">0</div>
+                                        <div class="kpi-title">Descargas de Álbumes</div>
+                                    </div>
+                                </div>
+                                <div class="kpi-breakdown-item">
+                                    <div class="metric-info">
+                                        <div class="metric-value">0</div>
+                                        <div class="kpi-title">Shazam</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -375,7 +507,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade show active" id="catalogos">
+                <div class="tab-pane fade" id="catalogos">
                     <div class="section-header">
                         <h2 class="main-title">Catálogos</h2>
                         <p>Administra tu catálogo de música, canciones y lanzamientos.</p>
@@ -396,8 +528,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>🎵</td>
-                                    <td class="text-center"><span class="monetizing-emoji">✅</span></td>
+                                    <td class="text-center type-emoji">🎵</td>
+                                    <td class="text-center monetizing-emoji">✅</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <img src="assets/img/cover1.jpg" alt="Carátula" class="album-art-thumb">
@@ -415,8 +547,8 @@
                                                 data-feather="trash-2"></i></a></td>
                                 </tr>
                                 <tr>
-                                    <td>🎵</td>
-                                    <td class="text-center"><span class="monetizing-emoji">✅</span></td>
+                                    <td class="text-center type-emoji">🎵</td>
+                                    <td class="text-center monetizing-emoji">✅</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <img src="assets/img/cover2.JPG" alt="Carátula" class="album-art-thumb">
@@ -434,8 +566,8 @@
                                                 data-feather="trash-2"></i></a></td>
                                 </tr>
                                 <tr>
-                                    <td>💿</td>
-                                    <td class="text-center"><span class="monetizing-emoji">❌</span></td>
+                                    <td class="text-center type-emoji">💿</td>
+                                    <td class="text-center monetizing-emoji">❌</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <img src="https://via.placeholder.com/40" alt="Carátula"
@@ -449,26 +581,6 @@
                                     <td>14/08/2025</td>
                                     <td>6 Pistas</td>
                                     <td><samp>3617399369853</samp></td>
-                                    <td class="text-end action-icons"><a href="#" title="Editar"><i
-                                                data-feather="edit-2"></i></a><a href="#" title="Eliminar"><i
-                                                data-feather="trash-2"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>🎤</td>
-                                    <td class="text-center"><span class="monetizing-emoji">✅</span></td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="https://via.placeholder.com/40" alt="Carátula Podcast"
-                                                class="album-art-thumb">
-                                            <div><a href="#" class="song-title">Charlas con BEZA</a>
-                                                <div class="artist-name">BEZA Producciones</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>BEZA Media</td>
-                                    <td>05/08/2025</td>
-                                    <td>5 Episodios</td>
-                                    <td><samp>POD-BEZA-001</samp></td>
                                     <td class="text-end action-icons"><a href="#" title="Editar"><i
                                                 data-feather="edit-2"></i></a><a href="#" title="Eliminar"><i
                                                 data-feather="trash-2"></i></a></td>
@@ -491,27 +603,65 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Es importante llamar a feather.replace() CADA VEZ que se cambia de pestaña
-        // para que los nuevos íconos se rendericen.
-        const triggerTabList = document.querySelectorAll('a-monetization-onon-monetization-offta-bs-toggle="tab"]');
+        const triggerTabList = document.querySelectorAll('a[data-bs-toggle="tab"]');
         triggerTabList.forEach(triggerEl => {
             triggerEl.addEventListener('shown.bs.tab', event => {
                 feather.replace();
             });
         });
-        // Llamada inicial para los íconos visibles al cargar.
         feather.replace();
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             Chart.defaults.color = '#6c757d';
-            Chart.defaults.borderColor = '#dee2e6';
+            Chart.defaults.borderColor = '#e9ecef';
 
-            const ctxLine = document.getElementById('ingresosMensualesChart');
-            if (ctxLine) { new Chart(ctxLine, { type: 'line', data: { labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'], datasets: [{ label: 'Año Actual (2025)', data: [850, 930, 1120, 1050, 1400, 1350, 1245, 1500, 1850, 2200, 2100, 2550], fill: true, backgroundColor: 'rgba(224, 59, 139, 0.1)', borderColor: '#E03B8B', tension: 0.4, pointBackgroundColor: '#E03B8B', pointBorderColor: '#fff', pointHoverRadius: 7, pointHoverBackgroundColor: '#E03B8B' }, { label: 'Año Anterior (2024)', data: [700, 750, 890, 820, 1100, 1050, 980, 1200, 1500, 1800, 1850, 2100], fill: false, borderColor: '#adb5bd', tension: 0.4, pointRadius: 0 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { callback: function (value) { return '$' + value.toLocaleString(); } } } }, plugins: { legend: { position: 'top', align: 'end' } } } }); }
+            function renderAnalyticsCharts() {
+                // Limpia los gráficos anteriores si existen para evitar errores al cambiar de pestaña
+                if (window.streamsChartInstance) window.streamsChartInstance.destroy();
 
-            const ctxDoughnut = document.getElementById('plataformasChart');
-            if (ctxDoughnut) { new Chart(ctxDoughnut, { type: 'doughnut', data: { labels: ['Spotify', 'Apple Music', 'YouTube Music', 'Amazon Music', 'Deezer', 'Tidal'], datasets: [{ label: 'Streams', data: [1250000, 480000, 210000, 150000, 75000, 45000], backgroundColor: ['#1DB954', '#FA586A', '#FF0000', '#00A4D3', '#EF5466', '#000000'], borderColor: '#fff', borderWidth: 4, hoverOffset: 8 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 20, usePointStyle: true, pointStyle: 'circle' } } } } }); }
+                const ctxArea = document.getElementById('streamsAreaChart');
+                if (ctxArea) {
+                    window.streamsChartInstance = new Chart(ctxArea, {
+                        type: 'line',
+                        data: {
+                            labels: ['24 Jul', '28 Jul', '4 Ago', '11 Ago', '18 Ago', '20 Ago'],
+                            datasets: [{
+                                label: 'Streams de Audio',
+                                data: [1500, 1800, 1400, 2000, 1600, 2100],
+                                fill: true,
+                                backgroundColor: 'rgba(88, 101, 242, 0.1)',
+                                borderColor: 'rgba(88, 101, 242, 1)',
+                                tension: 0.4,
+                                pointRadius: 0,
+                                pointHoverRadius: 6,
+                                pointHoverBackgroundColor: 'rgba(88, 101, 242, 1)',
+                                pointHoverBorderColor: '#fff'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: { y: { beginAtZero: false } },
+                            plugins: { legend: { display: false } },
+                            interaction: { intersect: false, mode: 'index' }
+                        }
+                    });
+                }
+            }
+
+            // Renderiza los gráficos cuando la pestaña de Analytics se muestra
+            const analyticsTab = document.querySelector('a[href="#analytics"]');
+            if (analyticsTab) {
+                analyticsTab.addEventListener('shown.bs.tab', function (event) {
+                    renderAnalyticsCharts();
+                });
+            }
+
+            // Si la página carga con Analytics ya activo, renderiza los gráficos
+            if (document.querySelector('#analytics.active')) {
+                renderAnalyticsCharts();
+            }
         });
     </script>
 </body>
