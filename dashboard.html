@@ -99,7 +99,7 @@
             white-space: nowrap;
         }
 
-        /* ---- Estilos para la Tabla de Catálogo ---- */
+        /* Estilos para la Tabla de Catálogo */
         .catalog-table .album-art-thumb {
             width: 40px;
             height: 40px;
@@ -137,7 +137,7 @@
             font-size: 1.25rem;
         }
 
-        /* ---- Nuevos Estilos para la Página de Analytics ---- */
+        /* Estilos para la Página de Analytics */
         .analytics-header {
             margin-bottom: 2rem;
         }
@@ -213,7 +213,7 @@
         .kpi-breakdown .sparkline-placeholder {
             width: 80px;
             height: 30px;
-            background: linear-gradient(to top, rgba(54, 162, 235, 0.05), rgba(54, 162, 235, 0.4));
+            background: linear-gradient(to top, rgba(88, 101, 242, 0.05), rgba(88, 101, 242, 0.4));
             border-radius: 4px;
         }
     </style>
@@ -351,35 +351,25 @@
                             <i data-feather="info"></i>
                         </div>
                     </div>
-
                     <div class="chart-card p-4">
                         <div class="kpi-main">
                             <h5 class="kpi-title">Streams de Audio</h5>
                             <div class="d-flex align-items-center">
                                 <h2 class="kpi-value me-3 mb-0">47,565</h2>
-                                <span class="kpi-change text-success d-flex align-items-center">
-                                    <i data-feather="trending-up" class="me-1"></i> 11.95%
-                                </span>
+                                <span class="kpi-change text-success d-flex align-items-center"><i
+                                        data-feather="trending-up" class="me-1"></i> 11.95%</span>
                             </div>
                             <div class="platform-icons mt-2">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Apple_Music_logo.svg/100px-Apple_Music_logo.svg.png"
                                     alt="Apple Music">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/VK.com-logo.svg/100px-VK.com-logo.svg.png"
-                                    alt="VK">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tencent_QQ_logo.svg"
-                                    alt="QQ">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Spotify_logo_with_text.svg/150px-Spotify_logo_with_text.svg.png"
                                     alt="Spotify">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Deezer_logo.svg/150px-Deezer_logo.svg.png"
-                                    alt="Deezer">
                             </div>
                         </div>
-
                         <div class="row g-4">
                             <div class="col-lg-8">
-                                <div class="chart-container" style="height: 300px;">
-                                    <canvas id="streamsAreaChart"></canvas>
-                                </div>
+                                <div class="chart-container" style="height: 300px;"><canvas
+                                        id="streamsAreaChart"></canvas></div>
                             </div>
                             <div class="col-lg-4 kpi-breakdown">
                                 <div class="kpi-breakdown-item">
@@ -388,8 +378,8 @@
                                         <div class="kpi-title">Streams de Audio</div>
                                     </div>
                                     <div class="metric-viz">
-                                        <div class="sparkline-placeholder"></div>
-                                        <span class="kpi-change text-success">11.95%</span>
+                                        <div class="sparkline-placeholder"></div><span
+                                            class="kpi-change text-success">11.95%</span>
                                     </div>
                                 </div>
                                 <div class="kpi-breakdown-item">
@@ -531,8 +521,8 @@
                                     <td class="text-center type-emoji">🎵</td>
                                     <td class="text-center monetizing-emoji">✅</td>
                                     <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="assets/img/cover1.jpg" alt="Carátula" class="album-art-thumb">
+                                        <div class="d-flex align-items-center"><img src="assets/img/cover1.jpg"
+                                                alt="Carátula" class="album-art-thumb">
                                             <div><a href="#" class="song-title">Barbie Malibu</a>
                                                 <div class="artist-name">De Young Asalt</div>
                                             </div>
@@ -550,8 +540,8 @@
                                     <td class="text-center type-emoji">🎵</td>
                                     <td class="text-center monetizing-emoji">✅</td>
                                     <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="assets/img/cover2.JPG" alt="Carátula" class="album-art-thumb">
+                                        <div class="d-flex align-items-center"><img src="assets/img/cover2.JPG"
+                                                alt="Carátula" class="album-art-thumb">
                                             <div><a href="#" class="song-title">FCN</a>
                                                 <div class="artist-name">De NYZY, Inzzyde</div>
                                             </div>
@@ -569,9 +559,8 @@
                                     <td class="text-center type-emoji">💿</td>
                                     <td class="text-center monetizing-emoji">❌</td>
                                     <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="https://via.placeholder.com/40" alt="Carátula"
-                                                class="album-art-thumb">
+                                        <div class="d-flex align-items-center"><img src="https://via.placeholder.com/40"
+                                                alt="Carátula" class="album-art-thumb">
                                             <div><a href="#" class="song-title">Amor Azul</a>
                                                 <div class="artist-name">De Blacksiel</div>
                                             </div>
@@ -581,6 +570,25 @@
                                     <td>14/08/2025</td>
                                     <td>6 Pistas</td>
                                     <td><samp>3617399369853</samp></td>
+                                    <td class="text-end action-icons"><a href="#" title="Editar"><i
+                                                data-feather="edit-2"></i></a><a href="#" title="Eliminar"><i
+                                                data-feather="trash-2"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center type-emoji">🎤</td>
+                                    <td class="text-center monetizing-emoji">✅</td>
+                                    <td>
+                                        <div class="d-flex align-items-center"><img src="https://via.placeholder.com/40"
+                                                alt="Carátula Podcast" class="album-art-thumb">
+                                            <div><a href="#" class="song-title">Charlas con BEZA</a>
+                                                <div class="artist-name">BEZA Producciones</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>BEZA Media</td>
+                                    <td>05/08/2025</td>
+                                    <td>5 Episodios</td>
+                                    <td><samp>POD-BEZA-001</samp></td>
                                     <td class="text-end action-icons"><a href="#" title="Editar"><i
                                                 data-feather="edit-2"></i></a><a href="#" title="Eliminar"><i
                                                 data-feather="trash-2"></i></a></td>
@@ -617,7 +625,6 @@
             Chart.defaults.borderColor = '#e9ecef';
 
             function renderAnalyticsCharts() {
-                // Limpia los gráficos anteriores si existen para evitar errores al cambiar de pestaña
                 if (window.streamsChartInstance) window.streamsChartInstance.destroy();
 
                 const ctxArea = document.getElementById('streamsAreaChart');
@@ -650,7 +657,6 @@
                 }
             }
 
-            // Renderiza los gráficos cuando la pestaña de Analytics se muestra
             const analyticsTab = document.querySelector('a[href="#analytics"]');
             if (analyticsTab) {
                 analyticsTab.addEventListener('shown.bs.tab', function (event) {
@@ -658,8 +664,9 @@
                 });
             }
 
-            // Si la página carga con Analytics ya activo, renderiza los gráficos
-            if (document.querySelector('#analytics.active')) {
+            if (document.querySelector('#dashboard.active.show')) {
+                // No es necesario renderizar los de analytics si se carga en el dashboard
+            } else if (document.querySelector('#analytics.active.show')) {
                 renderAnalyticsCharts();
             }
         });
