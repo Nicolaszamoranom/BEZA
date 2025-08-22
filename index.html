@@ -10,12 +10,11 @@
     <style>
         .hero {
             padding: 10rem 0;
-            /* CAMBIO: Se elimina la imagen de fondo y se aplica el degradado */
-            background: linear-gradient(to bottom, white, black);
+            /* CAMBIO: El degradado ahora comienza más abajo */
+            background: linear-gradient(to bottom, white 60%, black);
             background-size: cover;
         }
 
-        /* CAMBIO: Se ajusta el color del título y subtítulo para que se vean sobre el fondo blanco */
         .hero .display-4 {
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
@@ -33,6 +32,14 @@
             padding: 1rem 2rem;
             font-size: 1.25rem;
             font-weight: bold;
+        }
+
+        .logos-container img {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .logos-container img:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -64,11 +71,23 @@
     <header class="hero text-center">
         <div class="container">
             <h1 class="display-4">Tus Regalías, Tu Control.</h1>
-            <p class="lead my-4">El puente directo entre tu música y tu wallet</p>
-            <a href="dashboard.html" class="btn btn-primary-beza btn-lg">Acceder</a>
+            <p class="lead my-4">El punto directo entre tu música y tu wallet</p>
+            <a href="dashboard.html" class="btn btn-primary-beza btn-lg">Acceder a mi Dashboard</a>
         </div>
     </header>
 
+    <div class="bg-black py-5 logos-container">
+        <div class="container text-center">
+            <h3 class="mb-4">Disponible en todas las plataformas</h3>
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-5">
+                <img src="assets/img/spotify.png" alt="Spotify" height="45">
+                <img src="assets/img/apple_music.png" alt="Apple Music" height="45">
+                <img src="assets/img/deezer.png" alt="Deezer" height="45">
+                <img src="assets/img/youtube_music.png" alt="YouTube Music" height="45">
+                <img src="assets/img/tidal.png" alt="Tidal" height="45">
+            </div>
+        </div>
+    </div>
     <div class="container py-5" id="features">
         <h2 class="text-center main-title mb-5">Todo lo que necesitas en un solo lugar</h2>
     </div>
