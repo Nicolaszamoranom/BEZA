@@ -10,8 +10,7 @@
     <style>
         .hero {
             padding: 10rem 0;
-            /* CAMBIO: El degradado ahora comienza más abajo */
-            background: linear-gradient(to bottom, white 60%, black);
+            background: linear-gradient(to bottom, white 97%, black);
             background-size: cover;
         }
 
@@ -19,13 +18,11 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             color: #212529;
-            /* Texto oscuro para el título */
         }
 
         .hero .lead {
             font-size: 1.5rem;
             color: #FFFFFF;
-            /* Texto blanco */
         }
 
         .btn-lg {
@@ -52,16 +49,32 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">Características</a>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="countryDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/img/chile.png" alt="Bandera de Chile" width="20" class="me-2"
+                                id="selected-country-flag">
+                            <span id="selected-country-name">Chile</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="countryDropdown">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <img src="assets/img/chile.png" alt="Bandera de Chile" width="20" class="me-2">
+                                    <span>Chile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <img src="assets/img/mexico.png" alt="Bandera de México" width="20" class="me-2">
+                                    <span>México</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Precios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="dashboard.html" class="btn btn-outline-light ms-lg-3">Iniciar Sesión</a>
+                    <li class="nav-item ms-lg-3">
+                        <a href="login.html" class="btn btn-outline-light">Iniciar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -70,9 +83,9 @@
 
     <header class="hero text-center">
         <div class="container">
-            <h1 class="display-4">Tus Regalías, Tu Control.</h1>
+            <h1 class="display-4">TUS REGALÍAS, TÚ CONTROL</h1>
             <p class="lead my-4">El punto directo entre tu música y tu wallet</p>
-            <a href="dashboard.html" class="btn btn-primary-beza btn-lg">Acceder a mi Dashboard</a>
+            <a href="login.html" class="btn btn-primary-beza btn-lg">Acceder a mi Dashboard</a>
         </div>
     </header>
 
@@ -88,8 +101,9 @@
             </div>
         </div>
     </div>
-    <div class="container py-5" id="features">
-        <h2 class="text-center main-title mb-5">Todo lo que necesitas en un solo lugar</h2>
+
+    <div class="container py-2" id="features">
+        <h2 class="text-center main-title mb-5">TODO LO QUE NECESITAS EN UN SOLO LUGAR</h2>
     </div>
 
     <footer class="text-center py-4 bg-black">

@@ -120,3 +120,26 @@ body {
     background-color: #c7347a;
     border-color: #c7347a;
 }
+
+/* Estilos para el Selector de País */
+.navbar-nav .dropdown-toggle span {
+    font-size: 1.2rem;
+    /* Ajusta el tamaño de la bandera si es necesario */
+}
+
+.dropdown-menu .dropdown-item span {
+    font-size: 1.5rem;
+}
+
+/* Ajusta el tamaño del menú desplegable de país */
+.navbar-nav .dropdown-menu {
+    min-width: 100px;
+    /* Reduce este valor para hacerlo más angosto */
+    padding: 0.5rem 0;
+}
+
+/* Asegura que el texto del dropdown tenga el mismo tamaño */
+.navbar-nav .dropdown-menu .dropdown-item {
+    font-size: 1rem;
+    /* Mismo tamaño que .nav-link */
+}

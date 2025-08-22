@@ -32,3 +32,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+// --- LÓGICA PARA EL SELECTOR DE PAÍS ---
+
+// Espera a que todo el contenido de la página esté cargado
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Selecciona los elementos que vamos a necesitar
+    const countryDropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
+    const selectedCountryFlag = document.getElementById('selected-country-flag');
+    const selectedCountryName = document.getElementById('selected-country-name');
+
+    // Recorre cada elemento de la lista de países
+    countryDropdownItems.forEach(item => {
+        // Añade un "escuchador" de clics a cada uno
+        item.addEventListener('click', function (event) {
+            // Previene el comportamiento por defecto del enlace (que recargaría la página)
+            event.preventDefault();
+
+            // Del item al que se le hizo clic, obtenemos la imagen y el nombre
+            const newFlagSrc = item.querySelector('img').src;
+            const newCountryName = item.querySelector('span').textContent;
+
+            // Actualizamos la bandera y el nombre en el botón principal
+            selectedCountryFlag.src = newFlagSrc;
+            selectedCountryName.textContent = newCountryName;
+        });
+    });
+});
