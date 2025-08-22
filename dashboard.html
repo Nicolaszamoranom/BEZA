@@ -35,8 +35,9 @@
             color: #6c757d;
         }
 
-        /* ---- Nuevas Tarjetas de Estadísticas ---- */
-        .stat-card {
+        /* ---- Estilos para Tarjetas ---- */
+        .stat-card,
+        .table-container {
             background-color: white;
             border: none;
             border-radius: 12px;
@@ -44,7 +45,8 @@
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
-        .stat-card:hover {
+        .stat-card:hover,
+        .table-container:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
@@ -78,53 +80,11 @@
             font-size: 0.9rem;
         }
 
-        /* ---- Nuevas Tablas ---- */
+        /* ---- Estilos para Tablas ---- */
         .table-container {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             padding: 1rem;
         }
 
-        .table thead th {
-            border-bottom: 2px solid #e9ecef;
-            color: #6c757d;
-            font-weight: 500;
-        }
-
-        .table tbody tr:hover {
-            background-color: #f8f9fa;
-        }
-
-        /* ---- Nuevas Tarjetas de Catálogo ---- */
-        #catalogos .card {
-            background-color: white;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        #catalogos .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        #catalogos .card-img-top {
-            height: 450px;
-            object-fit: cover;
-            border-radius: 12px 12px 0 0;
-        }
-
-        #catalogos .card-title {
-            color: #111;
-        }
-
-        #catalogos .card-text {
-            color: #6c757d;
-        }
-
-        /* ---- Corrección para Tablas en Fondo Blanco ---- */
         .main-content .table {
             --bs-table-bg: transparent;
             --bs-table-border-color: #e9ecef;
@@ -136,19 +96,56 @@
             color: #6c757d;
             font-weight: 500;
             border-bottom-width: 1px;
+            white-space: nowrap;
+        }
+
+        /* ---- Estilos para Tabla de Catálogo ---- */
+        .catalog-table .album-art-thumb {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 1rem;
+        }
+
+        .catalog-table .song-title {
+            color: var(--primary-beza, #E03B8B);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .catalog-table .song-title:hover {
+            text-decoration: underline;
+        }
+
+        .catalog-table .artist-name {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        .catalog-table .action-icons a {
+            color: #6c757d;
+            margin: 0 0.5rem;
+        }
+
+        .catalog-table .action-icons a:hover {
+            color: var(--primary-beza, #E03B8B);
+        }
+
+        .catalog-table .monetizing-emoji {
+            font-size: 1.25rem;
         }
     </style>
 </head>
 
 <body>
-
     <div class="d-flex">
         <nav class="sidebar d-flex flex-column p-3">
             <a href="#" class="mb-4 text-center">
                 <h2 class="text-white fw-bold">BEZA</h2>
             </a>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item"><a class="nav-link active" href="#dashboard" data-bs-toggle="tab"><i
+                <li class="nav-item"><a class="nav-link" href="#dashboard" data-bs-toggle="tab"><i
                             data-feather="home"></i> <span>Dashboard</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#ingresos" data-bs-toggle="tab"><i
                             data-feather="dollar-sign"></i> <span>Ingresos</span></a></li>
@@ -158,7 +155,7 @@
                             data-feather="clock"></i> <span>Historial de retiro</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#contratos" data-bs-toggle="tab"><i
                             data-feather="file-text"></i> <span>Contratos</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="#catalogos" data-bs-toggle="tab"><i
+                <li class="nav-item"><a class="nav-link active" href="#catalogos" data-bs-toggle="tab"><i
                             data-feather="music"></i> <span>Catálogos</span></a></li>
             </ul>
             <hr>
@@ -190,9 +187,8 @@
                         <div class="col-xl-4 col-md-6">
                             <div class="stat-card">
                                 <div class="card-body">
-                                    <div class="stat-icon" style="background-color: #E03B8B;">
-                                        <i data-feather="dollar-sign"></i>
-                                    </div>
+                                    <div class="stat-icon" style="background-color: #E03B8B;"><i
+                                            data-feather="dollar-sign"></i></div>
                                     <h5 class="stat-title">INGRESOS DEL MES</h5>
                                     <h3 class="stat-value">$1,245.70</h3>
                                     <p class="stat-change mb-0 text-success d-flex align-items-center"><i
@@ -203,9 +199,8 @@
                         <div class="col-xl-4 col-md-6">
                             <div class="stat-card">
                                 <div class="card-body">
-                                    <div class="stat-icon" style="background-color: #00F5D4;">
-                                        <i data-feather="play-circle"></i>
-                                    </div>
+                                    <div class="stat-icon" style="background-color: #00F5D4;"><i
+                                            data-feather="play-circle"></i></div>
                                     <h5 class="stat-title">STREAMS TOTALES</h5>
                                     <h3 class="stat-value">1.8M</h3>
                                     <p class="stat-change mb-0 text-muted">89k esta semana</p>
@@ -215,9 +210,8 @@
                         <div class="col-xl-4 col-md-6">
                             <div class="stat-card">
                                 <div class="card-body">
-                                    <div class="stat-icon" style="background-color: #6c757d;">
-                                        <i data-feather="calendar"></i>
-                                    </div>
+                                    <div class="stat-icon" style="background-color: #6c757d;"><i
+                                            data-feather="calendar"></i></div>
                                     <h5 class="stat-title">PRÓXIMO PAGO</h5>
                                     <h3 class="stat-value">$830.12</h3>
                                     <p class="stat-change mb-0 text-muted">Estimado para el 25/08/2025</p>
@@ -275,17 +269,15 @@
                         <div class="col-lg-12">
                             <div class="stat-card p-3">
                                 <h5 class="card-title text-center">Ingresos Mensuales</h5>
-                                <div class="chart-container" style="height: 350px;">
-                                    <canvas id="ingresosMensualesChart"></canvas>
-                                </div>
+                                <div class="chart-container" style="height: 350px;"><canvas
+                                        id="ingresosMensualesChart"></canvas></div>
                             </div>
                         </div>
                         <div class="col-lg-12 mt-4">
                             <div class="stat-card p-3">
                                 <h5 class="card-title text-center">Streams por Plataforma</h5>
-                                <div class="chart-container" style="height: 350px;">
-                                    <canvas id="plataformasChart"></canvas>
-                                </div>
+                                <div class="chart-container" style="height: 350px;"><canvas
+                                        id="plataformasChart"></canvas></div>
                             </div>
                         </div>
                     </div>
@@ -383,38 +375,115 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="catalogos">
+                <div class="tab-pane fade show active" id="catalogos">
                     <div class="section-header">
                         <h2 class="main-title">Catálogos</h2>
                         <p>Administra tu catálogo de música, canciones y lanzamientos.</p>
                     </div>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <img src="assets/img/cover1.jpg" class="card-img-top" alt="Carátula del álbum 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Single: Barbie Malibu</h5>
-                                    <p class="card-text">Lanzado el 15/03/2025 • 1 cancion</p>
-                                    <p class="card-text fw-bold">2.1M streams totales</p>
-                                    <a href="#" class="btn btn-primary-beza">Ver detalles</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <img src="assets/img/cover2.JPG" class="card-img-top" alt="Carátula del single 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Single: FCN</h5>
-                                    <p class="card-text">Lanzado el 01/09/2024 • 1 canción</p>
-                                    <p class="card-text fw-bold">850k streams totales</p>
-                                    <a href="#" class="btn btn-primary-beza">Ver detalles</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="table-container">
+                        <table class="table table-hover align-middle catalog-table">
+                            <thead>
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th class="text-center">Monetizando</th>
+                                    <th>Título / Artista</th>
+                                    <th>Sello</th>
+                                    <th>Fecha de Entrega</th>
+                                    <th># Pistas</th>
+                                    <th>UPC / Cat#</th>
+                                    <th class="text-end">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>🎵</td>
+                                    <td class="text-center"><span class="monetizing-emoji">✅</span></td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/img/cover1.jpg" alt="Carátula" class="album-art-thumb">
+                                            <div><a href="#" class="song-title">Barbie Malibu</a>
+                                                <div class="artist-name">De Young Asalt</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>La Fabrica Estudio</td>
+                                    <td>22/08/2025</td>
+                                    <td>1 Pista</td>
+                                    <td><samp>UPC: Vacío</samp></td>
+                                    <td class="text-end action-icons"><a href="#" title="Editar"><i
+                                                data-feather="edit-2"></i></a><a href="#" title="Eliminar"><i
+                                                data-feather="trash-2"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>🎵</td>
+                                    <td class="text-center"><span class="monetizing-emoji">✅</span></td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/img/cover2.JPG" alt="Carátula" class="album-art-thumb">
+                                            <div><a href="#" class="song-title">FCN</a>
+                                                <div class="artist-name">De NYZY, Inzzyde</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>La Fabrica Estudio</td>
+                                    <td>21/08/2025</td>
+                                    <td>1 Pista</td>
+                                    <td><samp>3617399013794</samp></td>
+                                    <td class="text-end action-icons"><a href="#" title="Editar"><i
+                                                data-feather="edit-2"></i></a><a href="#" title="Eliminar"><i
+                                                data-feather="trash-2"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>💿</td>
+                                    <td class="text-center"><span class="monetizing-emoji">❌</span></td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://via.placeholder.com/40" alt="Carátula"
+                                                class="album-art-thumb">
+                                            <div><a href="#" class="song-title">Amor Azul</a>
+                                                <div class="artist-name">De Blacksiel</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>La Fabrica Estudio</td>
+                                    <td>14/08/2025</td>
+                                    <td>6 Pistas</td>
+                                    <td><samp>3617399369853</samp></td>
+                                    <td class="text-end action-icons"><a href="#" title="Editar"><i
+                                                data-feather="edit-2"></i></a><a href="#" title="Eliminar"><i
+                                                data-feather="trash-2"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>🎤</td>
+                                    <td class="text-center"><span class="monetizing-emoji">✅</span></td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://via.placeholder.com/40" alt="Carátula Podcast"
+                                                class="album-art-thumb">
+                                            <div><a href="#" class="song-title">Charlas con BEZA</a>
+                                                <div class="artist-name">BEZA Producciones</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>BEZA Media</td>
+                                    <td>05/08/2025</td>
+                                    <td>5 Episodios</td>
+                                    <td><samp>POD-BEZA-001</samp></td>
+                                    <td class="text-end action-icons"><a href="#" title="Editar"><i
+                                                data-feather="edit-2"></i></a><a href="#" title="Eliminar"><i
+                                                data-feather="trash-2"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="opciones"></div>
+                <div class="tab-pane fade" id="opciones">
+                    <div class="section-header">
+                        <h2 class="main-title">Opciones</h2>
+                        <p>Gestiona tu información personal y de pago.</p>
+                    </div>
+                </div>
 
             </div>
         </main>
@@ -422,97 +491,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        feather.replace()
+        // Es importante llamar a feather.replace() CADA VEZ que se cambia de pestaña
+        // para que los nuevos íconos se rendericen.
+        const triggerTabList = document.querySelectorAll('a-monetization-onon-monetization-offta-bs-toggle="tab"]');
+        triggerTabList.forEach(triggerEl => {
+            triggerEl.addEventListener('shown.bs.tab', event => {
+                feather.replace();
+            });
+        });
+        // Llamada inicial para los íconos visibles al cargar.
+        feather.replace();
     </script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- CONFIGURACIÓN GENERAL PARA GRÁFICOS ---
             Chart.defaults.color = '#6c757d';
             Chart.defaults.borderColor = '#dee2e6';
 
-            // --- GRÁFICO DE LÍNEA: INGRESOS MENSUALES ---
             const ctxLine = document.getElementById('ingresosMensualesChart');
-            if (ctxLine) {
-                new Chart(ctxLine, {
-                    type: 'line',
-                    data: {
-                        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                        datasets: [{
-                            label: 'Año Actual (2025)',
-                            data: [850, 930, 1120, 1050, 1400, 1350, 1245, 1500, 1850, 2200, 2100, 2550],
-                            fill: true,
-                            backgroundColor: 'rgba(224, 59, 139, 0.1)',
-                            borderColor: '#E03B8B',
-                            tension: 0.4,
-                            pointBackgroundColor: '#E03B8B',
-                            pointBorderColor: '#fff',
-                            pointHoverRadius: 7,
-                            pointHoverBackgroundColor: '#E03B8B'
-                        }, {
-                            label: 'Año Anterior (2024)',
-                            data: [700, 750, 890, 820, 1100, 1050, 980, 1200, 1500, 1800, 1850, 2100],
-                            fill: false,
-                            borderColor: '#adb5bd',
-                            tension: 0.4,
-                            pointRadius: 0
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: {
-                                    callback: function (value) {
-                                        return '$' + value.toLocaleString();
-                                    }
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                                align: 'end'
-                            }
-                        }
-                    }
-                });
-            }
+            if (ctxLine) { new Chart(ctxLine, { type: 'line', data: { labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'], datasets: [{ label: 'Año Actual (2025)', data: [850, 930, 1120, 1050, 1400, 1350, 1245, 1500, 1850, 2200, 2100, 2550], fill: true, backgroundColor: 'rgba(224, 59, 139, 0.1)', borderColor: '#E03B8B', tension: 0.4, pointBackgroundColor: '#E03B8B', pointBorderColor: '#fff', pointHoverRadius: 7, pointHoverBackgroundColor: '#E03B8B' }, { label: 'Año Anterior (2024)', data: [700, 750, 890, 820, 1100, 1050, 980, 1200, 1500, 1800, 1850, 2100], fill: false, borderColor: '#adb5bd', tension: 0.4, pointRadius: 0 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { callback: function (value) { return '$' + value.toLocaleString(); } } } }, plugins: { legend: { position: 'top', align: 'end' } } } }); }
 
-            // --- GRÁFICO DE DONA: STREAMS POR PLATAFORMA ---
             const ctxDoughnut = document.getElementById('plataformasChart');
-            if (ctxDoughnut) {
-                new Chart(ctxDoughnut, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Spotify', 'Apple Music', 'YouTube Music', 'Amazon Music', 'Deezer', 'Tidal'],
-                        datasets: [{
-                            label: 'Streams',
-                            data: [1250000, 480000, 210000, 150000, 75000, 45000],
-                            backgroundColor: ['#1DB954', '#FA586A', '#FF0000', '#00A4D3', '#EF5466', '#000000'],
-                            borderColor: '#fff',
-                            borderWidth: 4,
-                            hoverOffset: 8
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'bottom',
-                                labels: {
-                                    padding: 20,
-                                    usePointStyle: true,
-                                    pointStyle: 'circle'
-                                }
-                            }
-                        }
-                    }
-                });
-            }
+            if (ctxDoughnut) { new Chart(ctxDoughnut, { type: 'doughnut', data: { labels: ['Spotify', 'Apple Music', 'YouTube Music', 'Amazon Music', 'Deezer', 'Tidal'], datasets: [{ label: 'Streams', data: [1250000, 480000, 210000, 150000, 75000, 45000], backgroundColor: ['#1DB954', '#FA586A', '#FF0000', '#00A4D3', '#EF5466', '#000000'], borderColor: '#fff', borderWidth: 4, hoverOffset: 8 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 20, usePointStyle: true, pointStyle: 'circle' } } } } }); }
         });
     </script>
 </body>
