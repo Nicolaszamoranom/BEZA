@@ -54,9 +54,10 @@
         }
 
         #features {
-            padding-top: 8rem;
-            padding-bottom: 8rem;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
             text-align: center;
+            background-color: #f8f9fa;
         }
 
         #features h2 {
@@ -92,6 +93,49 @@
 
         .logo-img:hover {
             opacity: 1;
+        }
+
+        .benefits-section {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .benefit-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 3rem;
+        }
+
+        .benefit-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .benefit-text {
+            flex: 1 1 40%;
+            padding: 1rem;
+        }
+
+        .benefit-text h3 {
+            color: #212529;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-text p {
+            color: #6c757d;
+        }
+
+        .benefit-image {
+            flex: 1 1 40%;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .benefit-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -140,8 +184,7 @@
                     <a href="dashboard.html" class="btn btn-primary-beza btn-lg">Acceder a mi Dashboard</a>
                 </div>
                 <div class="col-md-6 text-center">
-                    <img src="assets/img/phone_mockup.png" alt="Teléfono con la app de BEZA"
-                        class="img-fluid phone-mockup">
+                    <img src="assets/img/phone.png" alt="Teléfono con la app de BEZA" class="img-fluid phone-mockup">
                 </div>
             </div>
         </div>
@@ -163,6 +206,51 @@
         <h2 class="text-center main-title text-dark">TODO LO QUE NECESITAS EN UN SOLO LUGAR</h2>
         <p>La conexión directa entre distribuidores y artistas.</p>
     </div>
+
+    <section class="benefits-section">
+        <div class="container">
+            <div class="benefit-row">
+                <div class="benefit-text">
+                    <h3>Directo a tu Bolsillo, Sin Complicaciones</h3>
+                    <p>¿Cansado de los enredos con los splitsheet? En BEZA, simplificamos la llegada de tus ganancias.
+                        Tu distribuidora deposita tus regalías (descontando su parte) directamente en tu Wallet BEZA.
+                        Olvídate de los intermediarios y recibe tus ingresos de forma transparente y rápida.</p>
+                </div>
+                <div class="benefit-image">
+                    <img src="assets/img/coin.png" alt="Ilustración de billetera digital recibiendo dinero"
+                        style="max-width: 250px; height: auto;">
+                </div>
+            </div>
+
+            <div class="benefit-row">
+                <div class="benefit-image">
+                    <img src="assets/img/smart_contract.png" alt="Ilustración de smart contracts y música"
+                        style="max-width: 250px; height: auto;">
+                </div>
+                <div class="benefit-text">
+                    <h3>Distribución Inteligente con Smart Contracts</h3>
+                    <p>La tecnología al servicio de tus regalías. BEZA utiliza smart contracts ligados al URI o ISRC de
+                        tu canción para asegurar una distribución automática y precisa de cada regalía a sus respectivos
+                        colaboradores. Una vez que tu distribuidora deposita en tu Wallet BEZA, nuestro sistema se
+                        encarga del resto, garantizando transparencia y eficiencia en cada pago.</p>
+                </div>
+            </div>
+
+            <div class="benefit-row">
+                <div class="benefit-text">
+                    <h3>Control Total de tus Regalías en un Solo Lugar</h3>
+                    <p>Visualiza, analiza y controla tus regalías como nunca antes. Con BEZA, tienes una visión clara de
+                        tus ingresos desde el momento en que tu distribuidora los deposita. Nuestra plataforma te
+                        permite ver cómo se distribuyen tus regalías gracias a nuestro sistema de smart contracts
+                        ligados al URI/ISRC, dándote el control total y la transparencia que necesitas.</p>
+                </div>
+                <div class="benefit-image">
+                    <img src="assets/img/regalias.png" alt="Ilustración de un dashboard de control de regalías"
+                        style="max-width: 400px; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="text-center py-4 bg-black text-white">
         <p class="mb-0">&copy; 2025 BEZA. Todos los derechos reservados.</p>
